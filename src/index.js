@@ -1,10 +1,29 @@
+import { storyblokInit, apiPlugin } from "@storyblok/react";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Page from './components/Page'
+import Grid from './components/Grid'
+import Feature from './components/Feature'
+import Teaser from './components/Teaser'
+
+ 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+ 
+storyblokInit({
+  accessToken: "<YOUR_STORYBLOK_TOKEN>",
+  use: [apiPlugin],
+  components: {
+    page: Page,
+    teaser: Teaser,
+    feature: Feature,
+    grid: Grid
+  }
+});
+ 
 root.render(
   <React.StrictMode>
     <App />
